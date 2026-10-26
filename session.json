@@ -1,0 +1,12 @@
+{
+    "interaction1":{
+        "id": "v1_ChcyclBlYXRybEtySDYycm9QMTh5RmlBSRIXMnJQZWF0cmxLckg2MnJvUDE4eUZpQUk",
+        "name_project": "test",
+        "history": [
+            {
+                "role": "user",
+                "content": "Hello, World!"
+            }
+        ]
+    }
+}
