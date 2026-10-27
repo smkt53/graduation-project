@@ -7,6 +7,9 @@
 ## ライブラリAPI仕様文書の更新を支援するツールの開発
 2章 関連ソフトウェアを2個例示
 
+## 生成AIの有効活用のためのプロンプトエンジニアリング
+3章 例示を使った技法
+
 ## WEBサイト
 ### Gemini API - Instructions API | Google AI for Developers
 https://ai.google.dev/gemini-api/docs?hl=ja
