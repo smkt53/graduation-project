@@ -31,3 +31,7 @@ Gemini APIキーを保存
 
 # test_json.py
 json操作のテスト環境
+txtを読み込むテスト環境
+
+# prompt.txt
+プロンプト制御文の記載
