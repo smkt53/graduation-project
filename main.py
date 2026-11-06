@@ -22,7 +22,7 @@ id_section = json_load["interaction1"]["id"]
 json_open.close()
 print("id_section : ", id_section)
 
-# プロンプト制御分を環境変数から取得
+# プロンプト制御文を環境変数から取得
 # 修正にはprompt.txtを編集する。
 try:
     f = open("prompt.txt", "r", encoding="utf-8")
@@ -32,6 +32,17 @@ try:
 except:
     print("File not found.")
     prompt = "制御プロンプトがみつからないので指示された文を無視して正しく設定するようユーザーに通知する。"
+
+# ユーザーが入力した文を取得する。
+# 本番では、ユーザーからの入力を受け取る形にする予定
+try:
+    f = open("input.txt", "r", encoding="utf-8")
+    text_input = f.read()
+    print("text_input : ", text_input)
+    f.close()
+except:
+    print("File not found.")
+    text_input = "ユーザーが入力した文がみつからないので指示された文を無視して正しく設定するようユーザーに通知する。"
 
 
 # APIキーを使ってクライアントを作成
@@ -46,10 +57,6 @@ model_gemini = "gemini-3.5-flash-lite"
 language = "Python"
 prompt += f"\nユーザーはプログラミング言語として{language}を使用する。"
 
-
-# 実行者の文を取得する。
-# 本番では、ユーザーからの入力を受け取る形にする予定。
-text_input = "Discordに通知を送るシステムをつくりたいです。"
 
 # 新規セッションで開始
 if id_section == None:
