@@ -22,16 +22,29 @@ id_section = json_load["interaction1"]["id"]
 json_open.close()
 print("id_section : ", id_section)
 
-# プロンプト制御文を環境変数から取得
-# 修正にはprompt.txtを編集する。
+# API探索用プロンプト制御文を環境変数から取得
+# 修正にはprompt_main.txtを編集する。
 try:
-    f = open("prompt.txt", "r", encoding="utf-8")
-    prompt = f.read()
-    print("prompt : ", prompt)
+    f = open("prompt_main.txt", "r", encoding="utf-8")
+    prompt_main = f.read()
+    print("prompt : ", prompt_main)
     f.close()
 except:
     print("File not found.")
-    prompt = "制御プロンプトがみつからないので指示された文を無視して正しく設定するようユーザーに通知する。"
+    prompt_main = "制御プロンプトがみつからないので指示された文を無視して正しく設定するようユーザーに通知する。"
+
+
+# 再検証用プロンプト制御文を環境変数から取得
+# 修正にはprompt_check.txtを編集する。
+try:
+    f = open("prompt_check.txt", "r", encoding="utf-8")
+    prompt_check = f.read()
+    print("prompt_check : ", prompt_check)
+    f.close()
+except:
+    print("File not found.")
+    prompt_check = "再検証用制御プロンプトがみつからないので指示された文を無視して正しく設定するようユーザーに通知する。"
+    
 
 # ユーザーが入力した文を取得する。
 # 本番では、ユーザーからの入力を受け取る形にする予定
@@ -55,7 +68,7 @@ model_gemini = "gemini-3.5-flash-lite"
 # ユーザーの使用するプログラミング言語を指定する。
 # 本番では選択できるようにしたいが、テスト環境ではpythonを強制指定する。
 language = "Python"
-prompt += f"\nユーザーはプログラミング言語として{language}を使用する。"
+prompt_main += f"\nユーザーはプログラミング言語として{language}を使用する。"
 
 
 # 新規セッションで開始
@@ -63,20 +76,31 @@ if id_section == None:
     interaction = client.interactions.create(
         model=model_gemini,
         input=text_input,
-        system_instruction=prompt
+        system_instruction=prompt_main
     )
 else:
     # 前回のセッションを引き継いで続きから開始
     interaction = client.interactions.create(
         model=model_gemini,
         input=text_input,
-        system_instruction=prompt,
+        system_instruction=prompt_main,
         previous_interaction_id=id_section,
     )
+
+# 結果を再検証する
+interaction_check = client.interactions.create(
+    model=model_gemini,
+    input=interaction.output_text,
+    # 再検証用のプロンプトを設計する。
+    system_instruction=prompt_check,
+    previous_interaction_id=None
+)
 
 
 # APIのレスポンスを表示
 print("APIのレスポンス : ", interaction.output_text)
+print("APIのレスポンス : ", interaction_check.output_text)
 
 # 保存するIDをいったん表示。後で消す。
 print("保存するID : ", interaction.id)
+print("保存するID : ", interaction_check.id)
