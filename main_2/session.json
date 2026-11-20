@@ -1,0 +1,10 @@
+{
+    "interaction1":{
+        "id": "",
+        "name_interaction": "Grounding"
+    },
+    "interaction2":{
+        "id": "",
+        "name_interaction": "Check Code"
+    }
+}
