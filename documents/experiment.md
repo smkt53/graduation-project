@@ -15,8 +15,8 @@
 1. OpenWeatherMapのAPIを介して天気情報を取得するスクリプトをPythonで作成したい。
 2. バージョンとサンプルコードとエンドポイントも教えてほしい。
 
-・Slackで送信Bot
-1. Slackで個人又はワークスペースに送信するBotのスクリプトをPythonで作成したい。
+・Switch BotでBotの操作
+1. Switch Botのボットを押すスクリプトを作成したい。
 2. バージョンとサンプルコードとエンドポイントも教えてほしい。
 
 ・Google Calenderで予定更新
