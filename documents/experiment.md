@@ -27,3 +27,11 @@
 ## OpenWeatherMap
 正確なエンドポイント
 ```https://api.openweathermap.org/data/4.0/onecall/current?lat={lat}&lon={lon}&appid={API key}```
+### Gemini 
+```https://api.openweathermap.org/data/2.5/weather```
+### Chat GPT
+```https://api.openweathermap.org/data/2.5/weather```
+### Claude
+```https://api.openweathermap.org/data/2.5/weather```
+### 開発システム
+```　```
