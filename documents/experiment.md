@@ -23,3 +23,8 @@
 ・Google Calenderで予定更新
 1. Google Calenderで自分の予定を更新するスクリプトをPythonで作成したい。
 2. バージョンとサンプルコードとエンドポイントも教えてほしい。
+
+# 結果
+## OpenWeatherMap
+正確なエンドポイント
+```https://api.openweathermap.org/data/4.0/onecall/current?lat={lat}&lon={lon}&appid={API key}```
