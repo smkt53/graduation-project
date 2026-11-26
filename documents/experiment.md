@@ -34,4 +34,4 @@
 ### Claude
 ```https://api.openweathermap.org/data/2.5/weather```
 ### 開発システム
-```　```
+```https://api.openweathermap.org/data/4.0/onecall/current```
